@@ -1,0 +1,7 @@
+Aby zepsuć program i wywołać zrzut pamięci w linii 49 pliku main.c zlikwidowałem przypisanie to wskaźnika "tree" odpowiednich wartości inicjalizujących. Spowodowało to, że (*tree)->(cokolwiek) powodowało zrzut pamięci.
+Uruchomiłem program z tym błędem, zgodnie z oczekiwaniami pojawił się zrzut pamięci.
+Aby znaleźć ten błąd uruchomiłem gdb poleceniem "gdb listExecute", listExecute to nazwa pliku wykonywalnego.
+Uruchomiłem program w gdb. Wskazał on, że błąd znajduje się w linii 407 pliku list.c, w funkcji dodającej węzeł do drzewa insert_to_tree, która wygląda następująco:
+if (strcmp((*tree)->surname,node->surname) > 0)
+Spróbowałem zatem wypisać różne wartości pojawiające się w tym wyrażeniu, przy próbie wypisania: (*tree)->surname  pojawił się komunikat: Cannot access memory at address 0x736f6e05
+Analizując kod "w górę" doszedłem do tego, że drzewo nie jest zainicjalizowane i poprawiłem (usuwając komentarz, który wcześniej dodalem ;) )

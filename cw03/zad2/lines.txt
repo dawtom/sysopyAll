@@ -1,0 +1,14 @@
+#line value
+#name
+#nazwa wartosc
+pwd
+ls -a -l
+pwd
+#name valval
+#nazwa
+gcc forks.c
+/home/administrator/Pulpit/Materiały/SysOpy/lab3/TomasiewiczDawid/cw03/zad2/a.out
+pwd
+pwd
+pwd
+ls -a

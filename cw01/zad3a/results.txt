@@ -1,0 +1,40 @@
+Wykonałem po 3 pomiary poleceniem "time". Czasy jak widać nie różnią się znacznie choć powinny. Prawdopodobnie jest to spowodowane przyjętą konwencją tworzenia węzłów poszczególnych struktur (są one pseudolosowe, oparte o generator pseudolosowych liczb całkowitych), a zatem nie wiadomo jaką strukturę ma drzewo do momentu całkowitego jego utworzenia.
+
+Biblioteka statyczna:
+real	0m1.787s
+user	0m1.556s
+sys	0m0.052s
+
+real	0m2.461s
+user	0m2.368s
+sys	0m0.068s
+
+real	0m1.646s
+user	0m1.580s
+sys	0m0.044s
+
+Biblioteka dzielona:
+real	0m1.378s
+user	0m1.296s
+sys	0m0.056s
+
+real	0m1.620s
+user	0m1.880s
+sys	0m0.048s
+
+real	0m1.801s
+user	0m1.728s
+sys	0m0.040s
+
+Biblioteka dynamicznie ładowana:
+real	0m1.493s
+user	0m1.420s
+sys	0m0.036s
+
+real	0m1.702s
+user	0m1.628s
+sys	0m0.052s
+
+real	0m1.639s
+user	0m1.580s
+sys	0m0.016s

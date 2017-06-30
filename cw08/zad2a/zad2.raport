@@ -1,0 +1,74 @@
+System operacyjny: Ubuntu 16.04.2 LTS (Xenial Xerus)
+Jądro systemu: 4.4.0-75-generic
+Sprzęt: Lenovo-B570
+
+Operacje do przetestowania wyników:
+
+1) wysłanie sygnału do procesu, gdy żaden wątek nie ma zamaskowanego tego sygnału
+Każdy sygnał zatrzymuje proces, przy czym wypisują się różne komunikaty dla sygnałów:
+    9) Unicestwiony
+    10) Sygnał użytkownika 1
+    15) Zakończony
+    19) [1]+  Zatrzymano              ./main 1 19
+    Przy sygnale 19 (SIGSTOP) proces pozostaje w pamięci (komenda ps go pokazuje)
+  Czyli wszystko działa domyślnie.
+
+2) wysłanie sygnału do procesu, gdy główny wątek programu ma zamaskowany ten sygnał, a wszystkie pozostałe wątki nie:
+Sygnał:
+    9) Unicestwiony
+    10) Program wykonuje się bez zmian
+    15) Program wykonuje się bez zmian
+    19) [1]+  Zatrzymano              ./main 2 19
+  Dzieje się tak, gdyż sygnałów 9 (SIGKILL) oraz 19 (SIGSTOP) nie można zamaskować.
+
+3) wysłanie sygnału do procesu, gdy wszystkie wątki mają zainstalowaną niestandardową procedurę obsługi przerwania,
+    która wypisuje informację o nadejściu tego sygnału oraz PID i TID danego wątku
+Sygnał:
+    9) Unicestwiony
+    10) Received SIGUSR1
+        PID: 25828
+         TID: -1219168512
+        TID: -1227564224, record id: 4
+        Pierwsze trzy linjki to wynik procedury obsługi przerwania, natomiast ostatnia to wynik działania programu,
+        czyli działa on bez zmian.
+    15) Received SIGTERM
+        PID: 25859
+         TID: -1218590976
+        TID: -1243772096, record id: 4
+        Tak samo jak wyżej.
+    19) [1]+  Zatrzymano              ./main 3 19
+Sygnałów 9,19 nie można zamaskować, główny wątek ma zamaskowane odpowiednie sygnały i reaguje zgodnie z procedurą
+obsługi przerwania.
+
+4) wysłanie sygnału do wątku z zamaskowanym tym sygnałem
+Sygnał:
+    9) Unicestwiony
+    10) Program wykonuje się bez zmian
+    15) Program wykonuje się bez zmian
+    19) [1]+  Zatrzymano              ./main 4 19
+
+5) wysłanie sygnału do wątku, w którym zmieniona jest procedura obsługi sygnału, jak przedstawiono w punkcie 3
+Sygnał:
+    9) Unicestwiony
+    10) Received SIGUSR1
+        PID: 26159
+         TID: -1218958528
+        TID: -1235743936, record id: 4
+        Pierwsze trzy linjki to wynik procedury obsługi przerwania, natomiast ostatnia to wynik działania programu,
+        czyli działa on bez zmian.
+    15) Received SIGTERM
+        PID: 26368
+         TID: -1218573504
+        TID: -1237320896, record id: 4
+        Tak samo jak wyżej.
+    19) [1]+  Zatrzymano              ./main 5 19
+Sygnałów 9,19 nie można zamaskować, wątki mają zamaskowane odpowiednie sygnały i reagują zgodnie z procedurą
+obsługi przerwania.
+
+b)
+
+W przypadku gdy w jednym z wątków występuje dzielenie przez zero, wypisuje się na ekran komunikat:
+"Błąd w obliczeniach zmiennoprzecinkowych (zrzut pamięci)", po czym kończy się wykonanie programu
+Jest to sygnał nr 8 automatycznie wysyłany do procesu w przypadku wystąpienia takiego błędu. Jako
+że wysyłany jest on do całego procesu i nie jest maskowany w tymże procesie, proces się kończy
+(tak jak w podpunkcie a, przypadku 1 z sygnałem nr 10)

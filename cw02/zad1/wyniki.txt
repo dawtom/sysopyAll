@@ -1,0 +1,109 @@
+SYS sort filename_sys 700 4 
+Results:
+	User time: 0.020 s, Sys time: 0.190 s
+SYS shuffle filename_sys 700 4 
+Results:
+	User time: 0.000 s, Sys time: 0.000 s
+SYS sort filename_sys 3000 4 
+Results:
+	User time: 0.390 s, Sys time: 2.720 s
+SYS shuffle filename_sys 3000 4 
+Results:
+	User time: 0.000 s, Sys time: 0.030 s
+LIB sort filename_lib 700 4  4 700 
+Results:
+	User time: 0.020 s, Sys time: 0.000 s
+LIB shuffle filename_lib 700 4 
+Results:
+	User time: 0.000 s, Sys time: 0.000 s
+LIB sort filename_lib 3000 4  4 3000 
+Results:
+	User time: 0.530 s, Sys time: 0.000 s
+LIB shuffle filename_lib 3000 4 
+Results:
+	User time: 0.010 s, Sys time: 0.040 s
+
+
+
+SYS sort filename_sys 700 512 
+Results:
+	User time: 0.140 s, Sys time: 0.860 s
+SYS shuffle filename_sys 700 512 
+Results:
+	User time: 0.000 s, Sys time: 0.000 s
+SYS sort filename_sys 3000 512 
+Results:
+	User time: 1.930 s, Sys time: 13.940 s
+SYS shuffle filename_sys 3000 512 
+Results:
+	User time: 0.000 s, Sys time: 0.020 s
+LIB sort filename_lib 700 512  512 700 
+Results:
+	User time: 0.090 s, Sys time: 0.040 s
+LIB shuffle filename_lib 700 512 
+Results:
+	User time: 0.000 s, Sys time: 0.000 s
+LIB sort filename_lib 3000 512  512 3000 
+Results:
+	User time: 1.040 s, Sys time: 0.620 s
+LIB shuffle filename_lib 3000 512
+Results:
+	User time: 0.000 s, Sys time: 0.020 s
+LIB sort filename_lib 3000 512  512 3000
+
+
+SYS sort filename_sys 700 4096 
+Results:
+	User time: 0.100 s, Sys time: 0.970 s
+SYS shuffle filename_sys 700 4096 
+Results:
+	User time: 0.000 s, Sys time: 0.000 s
+SYS sort filename_sys 3000 4096 No records left
+Restart search.
+Results:
+	User time: 1.910 s, Sys time: 22.180 s
+SYS shuffle filename_sys 3000 4096 
+Results:
+	User time: 0.000 s, Sys time: 0.030 s
+LIB sort filename_lib 700 4096  4096 700 
+Results:
+	User time: 0.170 s, Sys time: 0.950 s
+LIB shuffle filename_lib 700 4096 
+Results:
+	User time: 0.000 s, Sys time: 0.000 s
+LIB sort filename_lib 1024 4096  4096 1024
+Results:
+	User time: 0.380 s, Sys time: 1.690 s
+LIB shuffle filename_lib 1024 4096
+Results:
+	User time: 0.000 s, Sys time: 0.020 s
+
+
+SYS sort filename_sys 512 8192 
+Results:
+	User time: 0.000 s, Sys time: 0.360 s
+SYS shuffle filename_sys 512 8192 
+Results:
+	User time: 0.000 s, Sys time: 0.010 s
+SYS sort filename_sys 350 8192 
+Results:
+	User time: 0.000 s, Sys time: 0.140 s
+SYS shuffle filename_sys 350 8192 
+Results:
+	User time: 0.000 s, Sys time: 0.000 s
+LIB sort filename_lib 512 8192  8192 512 
+Results:
+	User time: 0.020 s, Sys time: 0.320 s
+LIB shuffle filename_lib 512 8192 
+Results:
+	User time: 0.000 s, Sys time: 0.010 s
+LIB sort filename_lib 350 8192  8192 350 
+Results:
+	User time: 0.010 s, Sys time: 0.170 s
+LIB shuffle filename_lib 350 8192 
+Results:
+	User time: 0.000 s, Sys time: 0.010 s
+
+
+Wnioski: używanie funkcji bibliotecznych jest zdecydowanie szybsze od używania funkcji systemowych, co pokazują załączone wyniki.
+Przykładowo: posortowanie 700 rekordów o rozmiarze 4 zajmuje funkcjom systemowym ok. 2,5s, a bibliotecznym ok. 0,6s

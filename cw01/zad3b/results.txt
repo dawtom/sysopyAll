@@ -1,0 +1,88 @@
+Wszystkie poziomy optymalizacji testowane w oparciu o bibliotekę statyczną.
+
+O1
+
+real	0m1.420s
+user	0m1.348s
+sys	0m0.044s
+
+real	0m1.357s
+user	0m1.272s
+sys	0m0.044s
+
+real	0m2.062s
+user	0m1.972s
+sys	0m0.056s
+
+O2
+
+real	0m1.325s
+user	0m1.240s
+sys	0m0.044s
+
+real	0m1.681s
+user	0m1.608s
+sys	0m0.048s
+
+real	0m1.450s
+user	0m1.380s
+sys	0m0.040s
+
+O3
+
+real	0m1.728s
+user	0m1.628s
+sys	0m0.080s
+
+real	0m1.544s
+user	0m1.412s
+sys	0m0.100s
+
+real	0m1.622s
+user	0m1.548s
+sys	0m0.036s
+
+Os
+
+real	0m1.618s
+user	0m1.524s
+sys	0m0.068s
+
+real	0m1.274s
+user	0m1.208s
+sys	0m0.040s
+
+real	0m1.393s
+user	0m1.324s
+sys	0m0.036s
+
+Ofast
+
+real	0m1.583s
+user	0m1.484s
+sys	0m0.060s
+
+real	0m1.762s
+user	0m1.676s
+sys	0m0.060s
+
+real	0m1.517s
+user	0m1.440s
+sys	0m0.044s
+
+Og
+
+real	0m1.522s
+user	0m1.464s
+sys	0m0.032s
+
+real	0m1.318s
+user	0m1.196s
+sys	0m0.080s
+
+real	0m1.703s
+user	0m1.612s
+sys	0m0.068s
+
+
+Komentarz do wyników: zauważyć można brak szczególnego przełożenia poziomów optymalizacji na czasy wykonania programu.

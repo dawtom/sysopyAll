@@ -1,0 +1,11 @@
+#line value
+#name
+#nazwa wartosc
+pwd
+ls -a -l
+cat forks.c
+pwd
+#name valval
+#nazwa
+gcc ./forks.c
+./a.out name
